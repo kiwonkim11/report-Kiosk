@@ -4,18 +4,10 @@ fun main() {
     println ("어서오세요 고객님.")
     println ("아래의 메뉴 중에서 원하는 것을 고르세요.")
     println ("")
-    println ("[ 메인 메뉴판 ]")
-    println ("1. 프리미엄 와퍼")
-    println ("2. 와퍼")
-    println ("3. 사이드메뉴")
-    println ("4. 음료")
-    println ("9. 결제")
-    println ("0. 종료")
 
-    val keepgoing: Int = 1
-    var basket = intArrayOf()
+    mainMenu()
 
-    while (keepgoing != 0) {
+    while (true) {
         var selectNumber = readLine()!!.toInt()
 
         when (selectNumber) {
@@ -32,6 +24,16 @@ fun main() {
     println ("프로그램을 종료합니다.")
 }
 
+fun mainMenu() {
+    println ("[ 메인 메뉴판 ]")
+    println ("1. 프리미엄 와퍼")
+    println ("2. 와퍼")
+    println ("3. 사이드메뉴")
+    println ("4. 음료")
+    println ("9. 결제")
+    println ("0. 종료")
+}
+
 fun primiumWapper() {
     println ("[ 프리미엄 와퍼 ]")
     println ("1. 콰트로치즈와퍼 | ￦7,900")
@@ -40,6 +42,9 @@ fun primiumWapper() {
     println ("4. 스태커4 와퍼  | ￦13,300")
     println ("0. 뒤로 가기")
 
+    var selectMenu = readLine()!!.toInt()
+
+    if (selectMenu == 0) mainMenu()
 }
 
 fun wapper() {
@@ -49,6 +54,10 @@ fun wapper() {
     println ("3. 불고기와퍼    | ￦7,400")
     println ("4. 와퍼주니어    | ￦4,700")
     println ("0. 뒤로 가기")
+
+    var selectMenu = readLine()!!.toInt()
+
+    if (selectMenu == 0) mainMenu()
 }
 
 fun sideMenu() {
@@ -59,6 +68,9 @@ fun sideMenu() {
     println ("4. 바삭킹       | ￦3,000")
     println ("0. 뒤로 가기")
 
+    var selectMenu = readLine()!!.toInt()
+
+    if (selectMenu == 0) mainMenu()
 }
 
 fun drink() {
@@ -68,6 +80,10 @@ fun drink() {
     println ("3. 오렌지쥬스    | ￦2,800")
     println ("4. 아메리카노    | ￦1,500")
     println ("0. 뒤로 가기")
+
+    var selectMenu = readLine()!!.toInt()
+
+    if (selectMenu == 0) mainMenu()
 }
 
 fun pay() {
@@ -75,4 +91,8 @@ fun pay() {
     println ("1. 현금")
     println ("2. 카드")
     println ("0. 뒤로 가기")
+
+    var selectMenu = readLine()!!.toInt()
+
+    if (selectMenu == 0) mainMenu()
 }
