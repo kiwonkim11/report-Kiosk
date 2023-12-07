@@ -10,4 +10,14 @@ class QuacheeWapper (name: String, price: Int) : PrimiumWapper(name, price) {
 
 }
 
-class
+class ShrimpWapper (name: String, price: Int) : PrimiumWapper(name, price) {
+
+}
+
+class MonsterWapper (name: String, price: Int) : PrimiumWapper(name, price) {
+
+}
+
+class StackerWapper (name: String, price: Int) : PrimiumWapper(name, price) {
+
+}
