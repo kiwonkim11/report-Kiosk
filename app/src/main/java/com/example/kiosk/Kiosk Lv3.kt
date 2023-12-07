@@ -32,23 +32,21 @@ fun main() {
 fun primiumWapper(menu: List, name: String, price: Int) {
     menu.primiumList()
 
-    var selectMenu = readLine()!!.toInt()
+    val myMenu = PrimiumWapper(name, price)
+    val selectMenu = readLine()!!.toInt()
 
     if (selectMenu == 0) menu.menuList()
+
     else if (selectMenu == 1) {
-        val myMenu = PrimiumWapper(name, price)
         myMenu.displayInfo("콰트로치즈와퍼", 7900)
     }
     else if (selectMenu == 2) {
-        val myMenu = PrimiumWapper(name, price)
         myMenu.displayInfo("통새우와퍼", 7900)
     }
     else if (selectMenu == 3) {
-        val myMenu = PrimiumWapper(name, price)
         myMenu.displayInfo("몬스터와퍼", 9300)
     }
     else if (selectMenu == 4) {
-        val myMenu = PrimiumWapper(name, price)
         myMenu.displayInfo("스태커4 와퍼", 13300)
     }
 }
@@ -57,23 +55,20 @@ fun wapper(menu: List, name: String, price: Int) {
 
     menu.wapperList()
 
-    var selectMenu = readLine()!!.toInt()
+    val myMenu = Wapper(name, price)
+    val selectMenu = readLine()!!.toInt()
 
     if (selectMenu == 0) menu.menuList()
     else if (selectMenu == 1) {
-        val myMenu = Wapper(name, price)
         myMenu.displayInfo("와퍼", 7100)
     }
     else if (selectMenu == 2) {
-        val myMenu = Wapper(name, price)
         myMenu.displayInfo("치즈와퍼", 7700)
     }
     else if (selectMenu == 3) {
-        val myMenu = Wapper(name, price)
         myMenu.displayInfo("불고기와퍼", 7400)
     }
     else if (selectMenu == 4) {
-        val myMenu = Wapper(name, price)
         myMenu.displayInfo("와퍼주니어", 4700)
     }
 }
@@ -82,20 +77,17 @@ fun sideMenu(menu: List, name: String, price: Int) {
 
     menu.sideList()
 
-    var selectMenu = readLine()!!.toInt()
+    val myMenu = SideMenu(name, price)
+    val selectMenu = readLine()!!.toInt()
 
     if (selectMenu == 0) menu.menuList()
     else if (selectMenu == 1) {
-        val myMenu = SideMenu(name, price)
         myMenu.displayInfo("감자튀김", 2100)
     } else if (selectMenu == 2) {
-        val myMenu = SideMenu(name, price)
         myMenu.displayInfo("너겟킹", 2200)
     } else if (selectMenu == 3) {
-        val myMenu = SideMenu(name, price)
         myMenu.displayInfo("코울슬로", 2100)
     } else if (selectMenu == 4) {
-        val myMenu = SideMenu(name, price)
         myMenu.displayInfo("바삭킹", 3000)
     }
 }
@@ -104,23 +96,20 @@ fun drink(menu: List, name: String, price: Int) {
 
     menu.drinkList()
 
-    var selectMenu = readLine()!!.toInt()
+    val myMenu = Drink(name, price)
+    val selectMenu = readLine()!!.toInt()
 
     if (selectMenu == 0) menu.menuList()
     else if (selectMenu == 1) {
-        val myMenu = Drink(name, price)
         myMenu.displayInfo("콜라", 2000)
     }
     else if (selectMenu == 2) {
-        val myMenu = Drink(name, price)
         myMenu.displayInfo("스프라이트", 2000)
     }
     else if (selectMenu == 3) {
-        val myMenu = Drink(name, price)
         myMenu.displayInfo("오렌지쥬스", 2800)
     }
     else if (selectMenu == 4) {
-        val myMenu = Drink(name, price)
         myMenu.displayInfo("아메리카노", 1500)
     }
 }
@@ -131,7 +120,7 @@ fun pay(menu: List) {
     println ("2. 카드")
     println ("0. 뒤로 가기")
 
-    var selectMenu = readLine()!!.toInt()
+    val selectMenu = readLine()!!.toInt()
 
     if (selectMenu == 0) menu.menuList()
 }

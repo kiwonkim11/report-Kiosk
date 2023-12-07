@@ -14,7 +14,7 @@ class CheeseWapper (name: String, price: Int) : Wapper(name, price) {
 
 }
 
-class bulgogiWapper (name: String, price: Int) : Wapper(name, price) {
+class BulgogiWapper (name: String, price: Int) : Wapper(name, price) {
 
 }
 

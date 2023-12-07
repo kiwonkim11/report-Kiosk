@@ -9,7 +9,7 @@ open class SideMenu (name: String, price: Int) {
 class FrenchFried (name: String, price: Int) : SideMenu(name, price) {
 
 }
-class coleslaw (name: String, price: Int) : SideMenu(name, price) {
+class Coleslaw (name: String, price: Int) : SideMenu(name, price) {
 
 }
 
