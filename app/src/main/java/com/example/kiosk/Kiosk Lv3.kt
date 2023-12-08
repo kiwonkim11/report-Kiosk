@@ -1,110 +1,121 @@
 package com.example.kiosk
 
-fun main() {
-    println ("어서오세요 고객님.")
-    println ("아래의 메뉴 중에서 원하는 것을 고르세요.")
-    println ("")
+var menus: MutableList<Menu> = ArrayList()
+var foods: MutableList<Food> = ArrayList()
 
-    var menu = List()
+fun main() {
+    init()
 
     while (true) {
-        menu.menuList()
+        displayMenu()
+        var selectNumber = getNumber()
 
-        var name: String = ""
-        var price: Int = 0
-        var selectNumber = readLine()!!.toInt()
+        if (selectNumber == 0) break
 
-        when (selectNumber) {
-            1 -> primiumWapper(menu)
-            2 -> wapper(menu)
-            3 -> sideMenu(menu)
-            4 -> drink(menu)
-            9 -> pay(menu)
-            0 -> break
-            else -> println("유효하지 않은 번호입니다.")
+        var selectedFood = selectMenu(selectNumber)
         }
-    }
 
     println ("프로그램을 종료합니다.")
 }
 
+fun init () {
+    menus.add(Menu("프리미엄 와퍼"))
+    menus.add(Menu("와퍼"))
+    menus.add(Menu("사이드 메뉴"))
+    menus.add(Menu("음료"))
 
-fun primiumWapper(menu: List) {
-    menu.primiumList()
-    val myMenu = PrimiumWapper()
+    //프리미엄 와퍼 추가
+    foods.add(Food("콰트로치즈와퍼", 7900, "프리미엄 와퍼"))
+    foods.add(Food("통새우와퍼", 7900, "프리미엄 와퍼"))
+    foods.add(Food("몬스터와퍼", 9300, "프리미엄 와퍼"))
+    foods.add(Food("스태커와퍼", 13300, "프리미엄 와퍼"))
 
-    while(true) {
-        val selectMenu = readLine()!!.toInt()
+    //와퍼 추가
+    foods.add(Food("와퍼", 7100, "와퍼"))
+    foods.add(Food("치즈와퍼", 7700, "와퍼"))
+    foods.add(Food("불고기와퍼", 7400, "와퍼"))
+    foods.add(Food("와퍼주니어", 4700, "와퍼"))
 
-        when (selectMenu) {
-            1 -> myMenu.displayInfo("콰트로치즈와퍼", 7900)
-            2 -> myMenu.displayInfo("통새우와퍼", 7900)
-            3 -> myMenu.displayInfo("몬스터와퍼", 9300)
-            4 -> myMenu.displayInfo("스태커4 와퍼", 13300)
-            0 -> break
-            else -> println("유효하지 않은 번호입니다.")
+    //사이드메뉴 추가
+    foods.add(Food("감자튀김", 2100, "사이드 메뉴"))
+    foods.add(Food("코울슬로", 2100, "사이드 메뉴"))
+    foods.add(Food("너겟킹", 2200, "사이드 메뉴"))
+    foods.add(Food("바삭킹", 2100, "사이드 메뉴"))
+
+    //음료 추가
+    foods.add(Food("콜라", 2000, "음료"))
+    foods.add(Food("스프라이트", 2000, "음료"))
+    foods.add(Food("오렌지쥬스", 2800, "음료"))
+    foods.add(Food("아메리카노", 1500, "음료"))
+}
+
+fun displayMenu() {
+    println("어서오세요 고객님.")
+    println("아래의 메뉴 중에서 원하는 것을 고르세요.")
+
+    var menuSize = menus.size
+    var count = 1
+    for (idx in 1..menuSize) {
+        val menu = menus[idx-1]
+        val name = menu.name
+        println ("$idx. $name")
+        count++
+    }
+    println ("0. 종료")
+}
+
+fun displayMenuDetail (categoryName: String) {
+    println("\n[ $categoryName ]")
+
+    var filteredFoods = foods.filter { it.category == categoryName }
+
+    val maxNameLength = filteredFoods.maxOfOrNull { it.name.toString().length } ?: 0
+    var foodSize = filteredFoods.size
+    for(i in 1..foodSize) {
+        val food = filteredFoods[i-1]
+        val name = food.name
+        val price = food.price
+        val namePadding = " ".repeat(maxNameLength - name.length)
+        println("$i. $name$namePadding | W $price")
+    }
+    println("0. 뒤로 가기")
+}
+
+fun getNumber(): Int {
+    var userInput: String?
+    var number: Int?
+
+    while(true){
+        print("번호를 입력해주세요.")
+        userInput = readLine()
+        number = userInput?.toIntOrNull()
+
+        if(number != null) {
+            return number
+        } else {
+            println("올바른 숫자를 입력해주세요")
         }
     }
 }
 
-fun wapper(menu: List) {
-    menu.wapperList()
-    val myMenu = Wapper()
+fun selectMenu(cateNumber: Int) : Food? {
+    var menu = menus[cateNumber - 1]
+    var categoryName = menu.name
 
-    while(true) {
-        val selectMenu = readLine()!!.toInt()
+    if (categoryName != "Cancel") {
+        var filteredFoods = foods.filter { it.category == categoryName }
+        displayMenuDetail(categoryName)
 
-        when (selectMenu) {
-            1 -> myMenu.displayInfo("와퍼", 7100)
-            2 -> myMenu.displayInfo("치즈와퍼", 7700)
-            3 -> myMenu.displayInfo("불고기와퍼", 7400)
-            4 -> myMenu.displayInfo("와퍼주니어", 4700)
-            0 -> break
-            else -> println("유효하지 않은 번호입니다.")
+        while (true) {
+            var selectFoodNumber = getNumber()
+            if (selectFoodNumber > filteredFoods.size || selectFoodNumber < 0) {
+                println("올바른 숫자를 입력해주세요")
+            } else if (selectFoodNumber == 0) {
+                return null
+            } else {
+                return filteredFoods[selectFoodNumber - 1]
+            }
         }
     }
-}
-
-fun sideMenu(menu: List) {
-    menu.sideList()
-    val myMenu = SideMenu()
-
-    while(true) {
-        val selectMenu = readLine()!!.toInt()
-
-        when (selectMenu) {
-            1 -> myMenu.displayInfo("감자튀김", 2100)
-            2 -> myMenu.displayInfo("너겟킹", 2200)
-            3 -> myMenu.displayInfo("코울슬로", 2100)
-            4 -> myMenu.displayInfo("바삭킹", 3000)
-            0 -> break
-            else -> println("유효하지 않은 번호입니다.")
-        }
-    }
-}
-
-fun drink(menu: List) {
-    menu.drinkList()
-    val myMenu = Drink()
-
-    while(true) {
-        val selectMenu = readLine()!!.toInt()
-
-        when (selectMenu) {
-            1 -> myMenu.displayInfo("콜라", 2000)
-            2 -> myMenu.displayInfo("스프라이트", 2000)
-            3 -> myMenu.displayInfo("오렌지쥬스", 2800)
-            4 -> myMenu.displayInfo("아메리카노", 1500)
-            0 -> break
-            else -> println("유효하지 않은 번호입니다.")
-        }
-    }
-}
-
-fun pay(menu: List) {
-    menu.payList()
-
-    val selectMenu = readLine()!!.toInt()
-
-    if (selectMenu == 0) menu.menuList()
+    return TODO("Provide the return value")
 }
