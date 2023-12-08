@@ -10,8 +10,14 @@ fun main() {
 
     while (true) {
         menu.menuList()
-        selectNumber = readLine()?.toInt() ?: 0
-
+        while (true) {
+            try {
+                selectNumber = readLine()?.toInt() ?: 0
+                break
+            } catch (e: Exception) {
+                println("예외처리, 다시 입력")
+            }
+        }
         when (selectNumber) {
             1 -> primiumWapper(menu)
             2 -> wapper(menu)
@@ -21,6 +27,7 @@ fun main() {
             0 -> break
             else -> println("유효하지 않은 번호입니다.")
         }
+
     }
 
     println ("프로그램을 종료합니다.")
@@ -33,7 +40,15 @@ fun primiumWapper(menu: List) {
 
     while (true) {
         menu.primiumList()
-        selectMenu = readLine()?.toInt() ?: 0
+
+        while (true) {
+            try {
+                selectMenu = readLine()?.toInt() ?: 0
+                break
+            } catch (e: Exception) {
+                println("예외처리, 다시 입력")
+            }
+        }
 
         when (selectMenu) {
             1 -> myMenu.displayInfo("콰트로치즈와퍼", 7900)
@@ -52,7 +67,15 @@ fun wapper(menu: List) {
 
     while (true) {
         menu.wapperList()
-        selectMenu = readLine()?.toInt() ?: 0
+
+        while (true) {
+            try {
+                selectMenu = readLine()?.toInt() ?: 0
+                break
+            } catch (e: Exception) {
+                println("예외처리, 다시 입력")
+            }
+        }
 
         when (selectMenu) {
             1 -> myMenu.displayInfo("와퍼", 7100)
@@ -71,7 +94,15 @@ fun sideMenu(menu: List) {
 
     while (true) {
         menu.sideList()
-        selectMenu = readLine()?.toInt() ?: 0
+
+        while (true) {
+            try {
+                selectMenu = readLine()?.toInt() ?: 0
+                break
+            } catch (e: Exception) {
+                println("예외처리, 다시 입력")
+            }
+        }
 
         when (selectMenu) {
             1 -> myMenu.displayInfo("감자튀김", 2100)
@@ -90,7 +121,15 @@ fun drink(menu: List) {
 
     while (true) {
         menu.drinkList()
-        selectMenu = readLine()?.toInt() ?: 0
+
+        while (true) {
+            try {
+                selectMenu = readLine()?.toInt() ?: 0
+                break
+            } catch (e: Exception) {
+                println("예외처리, 다시 입력")
+            }
+        }
 
         when (selectMenu) {
             1 -> myMenu.displayInfo("콜라", 2000)
@@ -109,7 +148,20 @@ fun pay(menu: List) {
     println ("2. 카드")
     println ("0. 뒤로 가기")
 
-    val selectMenu = readLine()!!.toInt()
+    var selectMenu: Int
+    while (true) {
+        try {
+            selectMenu = readLine()!!.toInt()
+            if (selectMenu in 0..3){
+                break
+            }else {
+                println("1,2,0 중 하나 입력")
+            }
+        } catch (e: Exception) {
+            println("예외처리, 다시 입력")
+        }
+    }
+
 
     if (selectMenu == 0) menu.menuList()
 }
