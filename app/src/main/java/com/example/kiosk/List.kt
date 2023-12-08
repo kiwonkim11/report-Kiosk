@@ -46,4 +46,11 @@ class List {
         println ("4. 아메리카노    | ￦1,500")
         println ("0. 뒤로 가기")
     }
+
+    fun payList() {
+        println ("결제수단을 선택하세요.")
+        println ("1. 현금")
+        println ("2. 카드")
+        println ("0. 뒤로 가기")
+    }
 }
