@@ -5,20 +5,18 @@ fun main() {
     println ("아래의 메뉴 중에서 원하는 것을 고르세요.")
     println ("")
 
-    var menu = List()
-
-    menu.menuList()
+    val menu = List()
+    var selectNumber: Int
 
     while (true) {
-        var name: String = ""
-        var price: Int = 0
-        var selectNumber = readLine()!!.toInt()
+        menu.menuList()
+        selectNumber = readLine()?.toInt() ?: 0
 
         when (selectNumber) {
-            1 -> primiumWapper(menu, name, price)
-            2 -> wapper(menu, name, price)
-            3 -> sideMenu(menu, name, price)
-            4 -> drink(menu, name, price)
+            1 -> primiumWapper(menu)
+            2 -> wapper(menu)
+            3 -> sideMenu(menu)
+            4 -> drink(menu)
             9 -> pay(menu)
             0 -> break
             else -> println("유효하지 않은 번호입니다.")
@@ -29,70 +27,79 @@ fun main() {
 }
 
 
-fun primiumWapper(menu: List, name: String, price: Int) {
-    menu.primiumList()
+fun primiumWapper(menu: List) {
+    val myMenu = PrimiumWapper()
+    var selectMenu: Int
 
-    val myMenu = PrimiumWapper(name, price)
-    val selectMenu = readLine()!!.toInt()
+    while (true) {
+        menu.primiumList()
+        selectMenu = readLine()?.toInt() ?: 0
 
-    when(selectMenu){
-        1 -> myMenu.displayInfo("콰트로치즈와퍼", 7900)
-        2 -> myMenu.displayInfo("통새우와퍼", 7900)
-        3 -> myMenu.displayInfo("몬스터와퍼", 9300)
-        4 -> myMenu.displayInfo("스태커4 와퍼", 13300)
-        0 -> menu.menuList()
-        else -> println("유효하지 않은 번호입니다.")
+        when (selectMenu) {
+            1 -> myMenu.displayInfo("콰트로치즈와퍼", 7900)
+            2 -> myMenu.displayInfo("통새우와퍼", 7900)
+            3 -> myMenu.displayInfo("몬스터와퍼", 9300)
+            4 -> myMenu.displayInfo("스태커4 와퍼", 13300)
+            0 -> break
+            else -> println("유효하지 않은 번호입니다.")
+        }
     }
 }
 
-fun wapper(menu: List, name: String, price: Int) {
+fun wapper(menu: List) {
+    val myMenu = Wapper()
+    var selectMenu: Int
 
-    menu.wapperList()
+    while (true) {
+        menu.wapperList()
+        selectMenu = readLine()?.toInt() ?: 0
 
-    val myMenu = Wapper(name, price)
-    val selectMenu = readLine()!!.toInt()
-
-    when(selectMenu){
-        1 -> myMenu.displayInfo("와퍼", 7100)
-        2 -> myMenu.displayInfo("치즈와퍼", 7700)
-        3 -> myMenu.displayInfo("불고기와퍼", 7400)
-        4 -> myMenu.displayInfo("와퍼주니어", 4700)
-        0 -> menu.menuList()
-        else -> println("유효하지 않은 번호입니다.")
+        when (selectMenu) {
+            1 -> myMenu.displayInfo("와퍼", 7100)
+            2 -> myMenu.displayInfo("치즈와퍼", 7700)
+            3 -> myMenu.displayInfo("불고기와퍼", 7400)
+            4 -> myMenu.displayInfo("와퍼주니어", 4700)
+            0 -> break
+            else -> println("유효하지 않은 번호입니다.")
+        }
     }
 }
 
-fun sideMenu(menu: List, name: String, price: Int) {
+fun sideMenu(menu: List) {
+    val myMenu = SideMenu()
+    var selectMenu: Int
 
-    menu.sideList()
+    while (true) {
+        menu.sideList()
+        selectMenu = readLine()?.toInt() ?: 0
 
-    val myMenu = SideMenu(name, price)
-    val selectMenu = readLine()!!.toInt()
-
-    when(selectMenu){
-        1 -> myMenu.displayInfo("감자튀김", 2100)
-        2 -> myMenu.displayInfo("너겟킹", 2200)
-        3 -> myMenu.displayInfo("코울슬로", 2100)
-        4 -> myMenu.displayInfo("바삭킹", 3000)
-        0 -> menu.menuList()
-        else -> println("유효하지 않은 번호입니다.")
+        when (selectMenu) {
+            1 -> myMenu.displayInfo("감자튀김", 2100)
+            2 -> myMenu.displayInfo("너겟킹", 2200)
+            3 -> myMenu.displayInfo("코울슬로", 2100)
+            4 -> myMenu.displayInfo("바삭킹", 3000)
+            0 -> break
+            else -> println("유효하지 않은 번호입니다.")
+        }
     }
 }
 
-fun drink(menu: List, name: String, price: Int) {
+fun drink(menu: List) {
+    val myMenu = Drink()
+    var selectMenu: Int
 
-    menu.drinkList()
+    while (true) {
+        menu.drinkList()
+        selectMenu = readLine()?.toInt() ?: 0
 
-    val myMenu = Drink(name, price)
-    val selectMenu = readLine()!!.toInt()
-
-    when(selectMenu){
-        1 -> myMenu.displayInfo("콜라", 2000)
-        2 -> myMenu.displayInfo("스프라이트", 2000)
-        3 -> myMenu.displayInfo("오렌지쥬스", 2800)
-        4 -> myMenu.displayInfo("아메리카노", 1500)
-        0 -> menu.menuList()
-        else -> println("유효하지 않은 번호입니다.")
+        when (selectMenu) {
+            1 -> myMenu.displayInfo("콜라", 2000)
+            2 -> myMenu.displayInfo("스프라이트", 2000)
+            3 -> myMenu.displayInfo("오렌지쥬스", 2800)
+            4 -> myMenu.displayInfo("아메리카노", 1500)
+            0 -> break
+            else -> println("유효하지 않은 번호입니다.")
+        }
     }
 }
 

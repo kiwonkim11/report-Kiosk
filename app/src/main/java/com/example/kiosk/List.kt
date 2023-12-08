@@ -1,6 +1,7 @@
 package com.example.kiosk
 
 class List {
+    /** 메인 메뉴판을 보여줌*/
     fun menuList() {
         println ("[ 메인 메뉴판 ]")
         println ("1. 프리미엄 와퍼")
@@ -10,7 +11,7 @@ class List {
         println ("9. 결제")
         println ("0. 종료")
     }
-
+    /** 프리미엄 메뉴판 보여줌*/
     fun primiumList() {
         println ("[ 프리미엄 와퍼 ]")
         println ("1. 콰트로치즈와퍼 | ￦7,900")
@@ -19,7 +20,7 @@ class List {
         println ("4. 스태커4 와퍼  | ￦13,300")
         println ("0. 뒤로 가기")
     }
-
+    /** 와퍼 메뉴판 보여줌*/
     fun wapperList() {
         println ("[ 와퍼 ]")
         println ("1. 와퍼         | ￦7,100")
@@ -28,7 +29,7 @@ class List {
         println ("4. 와퍼주니어    | ￦4,700")
         println ("0. 뒤로 가기")
     }
-
+    /** 사이드 메뉴판 보여줌*/
     fun sideList() {
         println("[ 사이드메뉴 ]")
         println("1. 감자튀김     | ￦2,100")
@@ -37,7 +38,7 @@ class List {
         println("4. 바삭킹       | ￦3,000")
         println("0. 뒤로 가기")
     }
-
+    /** 음료 메뉴판 보여줌*/
     fun drinkList() {
         println ("[ 음료 ]")
         println ("1. 콜라         | ￦2,000")
