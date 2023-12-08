@@ -10,15 +10,13 @@ fun main() {
     menu.menuList()
 
     while (true) {
-        var name: String = ""
-        var price: Int = 0
         var selectNumber = readLine()?.toInt() ?: 0
 
         when (selectNumber) {
-            1 -> primiumWapper(menu, name, price)
-            2 -> wapper(menu, name, price)
-            3 -> sideMenu(menu, name, price)
-            4 -> drink(menu, name, price)
+            1 -> primiumWapper(menu)
+            2 -> wapper(menu)
+            3 -> sideMenu(menu)
+            4 -> drink(menu)
             9 -> pay(menu)
             0 -> break
             else -> println("유효하지 않은 번호입니다.")
@@ -29,10 +27,10 @@ fun main() {
 }
 
 
-fun primiumWapper(menu: List, name: String, price: Int) {
+fun primiumWapper(menu: List) {
     menu.primiumList()
 
-    val myMenu = PrimiumWapper(name, price)
+    val myMenu = PrimiumWapper()
     val selectMenu = readLine()!!.toInt()
 
     when(selectMenu){
@@ -45,11 +43,11 @@ fun primiumWapper(menu: List, name: String, price: Int) {
     }
 }
 
-fun wapper(menu: List, name: String, price: Int) {
+fun wapper(menu: List) {
 
     menu.wapperList()
 
-    val myMenu = Wapper(name, price)
+    val myMenu = Wapper()
     val selectMenu = readLine()!!.toInt()
 
     when(selectMenu){
@@ -62,11 +60,11 @@ fun wapper(menu: List, name: String, price: Int) {
     }
 }
 
-fun sideMenu(menu: List, name: String, price: Int) {
+fun sideMenu(menu: List) {
 
     menu.sideList()
 
-    val myMenu = SideMenu(name, price)
+    val myMenu = SideMenu()
     val selectMenu = readLine()!!.toInt()
 
     when(selectMenu){
@@ -79,11 +77,11 @@ fun sideMenu(menu: List, name: String, price: Int) {
     }
 }
 
-fun drink(menu: List, name: String, price: Int) {
+fun drink(menu: List) {
 
     menu.drinkList()
 
-    val myMenu = Drink(name, price)
+    val myMenu = Drink()
     val selectMenu = readLine()!!.toInt()
 
     when(selectMenu){
