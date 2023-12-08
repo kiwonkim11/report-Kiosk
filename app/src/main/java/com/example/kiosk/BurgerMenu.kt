@@ -5,7 +5,7 @@ package com.example.kiosk
 class BurgerMenu(): Menu() {
     override fun menuDetail(menu: String) {
         var menuIng = Ingredient().whatIng(menu)
-        var menuPrc = 3000 /*MenuPrice(menu)*/
+        var menuPrc = MenuPrice().price(menu)
         println("${menu} |")
         println("${menu}의 재료는 ${menuIng}")
         println("${menu}의 가격은 ${menuPrc}")

@@ -7,7 +7,7 @@ class Order() {
         var menuAmt = readLine()!!.toInt()
         println("${menu}을 ${menuAmt}개 선택하였습니다")
 
-        return MenuPrice().price(menu)!!.toInt()
+        return (MenuPrice().price(menu)!!.toInt()) * menuAmt
     }
 
 }
