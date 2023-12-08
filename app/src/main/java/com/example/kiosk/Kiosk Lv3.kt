@@ -10,7 +10,7 @@ fun main() {
 
     while (true) {
         menu.menuList()
-        selectNumber = readLine()?.toInt() ?: 0
+        selectNumber = readLine()?.toIntOrNull() ?: -1
 
         when (selectNumber) {
             1 -> primiumWapper(menu)
@@ -33,7 +33,7 @@ fun primiumWapper(menu: List) {
 
     while (true) {
         menu.primiumList()
-        selectMenu = readLine()?.toInt() ?: 0
+        selectMenu = readLine()?.toIntOrNull() ?: -1
 
         when (selectMenu) {
             in 1..4 -> myMenu[selectMenu-1]
@@ -49,7 +49,7 @@ fun wapper(menu: List) {
 
     while (true) {
         menu.primiumList()
-        selectMenu = readLine()?.toInt() ?: 0
+        selectMenu = readLine()?.toIntOrNull() ?: -1
 
         when (selectMenu) {
             in 1..4 -> myMenu[selectMenu-1]
@@ -65,7 +65,7 @@ fun sideMenu(menu: List) {
 
     while (true) {
         menu.primiumList()
-        selectMenu = readLine()?.toInt() ?: 0
+        selectMenu = readLine()?.toIntOrNull() ?: -1
 
         when (selectMenu) {
             in 1..4 -> myMenu[selectMenu-1]
@@ -81,7 +81,7 @@ fun drink(menu: List) {
 
     while (true) {
         menu.primiumList()
-        selectMenu = readLine()?.toInt() ?: 0
+        selectMenu = readLine()?.toIntOrNull() ?: -1
 
         when (selectMenu) {
             in 1..4 -> myMenu[selectMenu-1]
