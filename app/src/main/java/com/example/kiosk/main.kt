@@ -24,7 +24,6 @@ var now = LocalDateTime.now()
 var start = LocalDateTime.of(now.year, now.month, now.dayOfMonth, 1, 10, 0)
 var end = LocalDateTime.of(now.year, now.month, now.dayOfMonth, 1, 45, 0)
 
-
 @SuppressLint("NewApi")
 suspend fun main() {
     init()
