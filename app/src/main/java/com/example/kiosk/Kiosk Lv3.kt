@@ -12,7 +12,7 @@ fun main() {
     while (true) {
         var name: String = ""
         var price: Int = 0
-        var selectNumber = readLine()!!.toInt()
+        var selectNumber = readLine()?.toInt() ?: 0
 
         when (selectNumber) {
             1 -> primiumWapper(menu, name, price)
