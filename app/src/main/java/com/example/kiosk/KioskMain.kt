@@ -1,7 +1,8 @@
 package com.example.kiosk
 
 
-import java.lang.Exception
+import java.util.Dictionary
+import kotlin.Exception
 
 fun main() {
     println("어서오세요 햄버거 전문점입니다.")
@@ -22,24 +23,24 @@ fun main() {
             println("포장 주문입니다")
         }
 
-        var selectedMenu = select("selectedNum")
+        var selected = select("selectedNum")
 
-        when (selectedMenu) {
+        when (selected) {
             1 -> {
                 println("세트 메뉴로 이동합니다")
-                menuList(selectedMenu)
+                menuList(selected)
             }
             2 -> {
                 println("햄버거 단품 메뉴로 이동합니다")
-                menuList(selectedMenu)
+                menuList(selected)
             }
             3 -> {
                 println("사이드 메뉴로 이동합니다")
-                menuList(selectedMenu)
+                menuList(selected)
             }
             4 -> {
                 println("음료 메뉴로 이동합니다")
-                menuList(selectedMenu)
+                menuList(selected)
             }
             5 -> {
                 println("이전 메뉴로 돌아갑니다")
@@ -49,6 +50,10 @@ fun main() {
                 println("숫자를 잘못 입력")
             }
         }
+        selected = select("selectedMenu")
+
+        Order().orderMenu(selected.toString())
+
 
 
     }
@@ -92,6 +97,23 @@ fun select (choice: String): Any {
 
 
         }
+        "selectedMenu" -> {
+            var allMenu = arrayOf("불고기버거", "치즈버거", "야채버거", "어린이용버거", "감자튀김", "치즈볼", "치킨너겟", "어니언링", "콜라", "사이다", "환타", "주스")
+            println("주문할 메뉴를 선택하세요")
+            while (true) {
+                try {
+                    var selectedMenu = readLine().toString()
+                    if (selectedMenu in allMenu) {
+                        return selectedMenu
+                    }else {
+                        println("목록에 있는 메뉴를 선택하세요")
+                    }
+                } catch (e: Exception) {
+                    println("메뉴를 입력해주세요")
+                }
+            }
+
+        }
         else -> {
             println("")
         }
@@ -103,32 +125,34 @@ fun menuList (num: Any) {
     when (num) {
         1 -> {
             println("세트 메뉴")
-            Menu().menuDetail("불고기버거세트")
-            Menu().menuDetail("치즈버거세트")
-            Menu().menuDetail("야채버거세트")
-            Menu().menuDetail("어린이세트")
+//            Menu().menuDetail("불고기버거세트")
+//            Menu().menuDetail("치즈버거세트")
+//            Menu().menuDetail("야채버거세트")
+//            Menu().menuDetail("어린이세트")
         }
         2 -> {
             println("햄버거 단품 메뉴")
-            Menu().menuDetail("불고기버거")
-            Menu().menuDetail("치즈버거")
-            Menu().menuDetail("야채버거")
-            Menu().menuDetail("어린이용버거")
+            BurgerMenu().menuDetail("불고기버거")
+            BurgerMenu().menuDetail("치즈버거")
+            BurgerMenu().menuDetail("야채버거")
+            BurgerMenu().menuDetail("어린이용버거")
         }
         3 -> {
             println("사이드 메뉴")
-            Menu().menuDetail("감자튀김")
-            Menu().menuDetail("치즈볼")
-            Menu().menuDetail("치킨너겟")
-            Menu().menuDetail("어니언링")
+            SideMenu().menuDetail("감자튀김")
+            SideMenu().menuDetail("치즈볼")
+            SideMenu().menuDetail("치킨너겟")
+            SideMenu().menuDetail("어니언링")
         }
         4 -> {
             println("음료 메뉴")
-            Menu().menuDetail("콜라")
-            Menu().menuDetail("사이다")
-            Menu().menuDetail("환타")
-            Menu().menuDetail("주스")
+            DrinkMenu().menuDetail("콜라")
+            DrinkMenu().menuDetail("사이다")
+            DrinkMenu().menuDetail("환타")
+            DrinkMenu().menuDetail("주스")
         }
 
     }
+
+
 }
